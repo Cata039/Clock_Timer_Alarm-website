@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://fonts.googleapis.com/css?family=IBM Plex Serif' rel='stylesheet'>
+</head>
+<body>
+    <div class="container">
+        <div class="all4">
+        <div class="timer_input">
+            <label for="time-input" class="time-label">Select Time:</label>
+            <input type="time" id="time-input" name="time-input" >
+        </div>   
+
+        <div class="buttons">
+            <button id="start-btn">Start</button>
+            <button id="reset-btn">Reset</button>
+        </div> 
+        <div class="mode_button">
+            <button id="theme-toggle-timer">Mode</button>
+        </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Get the theme toggle button element
+                const themeToggle = document.getElementById('theme-toggle-timer');
+        
+                // Function to toggle the dark theme
+                function toggleDarkTheme() {
+                    document.body.classList.toggle('dark-theme');
+                    // Update the theme preference in localStorage
+                    const isDarkTheme = document.body.classList.contains('dark-theme');
+                    localStorage.setItem('theme', isDarkTheme ? 'dark' : 'light');
+                }
+        
+                // Event listener for the theme toggle button
+                themeToggle.addEventListener('click', toggleDarkTheme);
+        
+                // Retrieve the theme preference from localStorage and apply it
+                const savedTheme = localStorage.getItem('theme');
+                if (savedTheme === 'dark') {
+                    document.body.classList.add('dark-theme');
+                }
+            });
+        </script>
+        
+        </div>
+        
+        <div id="timer">00:00:00</div>
+        
+        <div class="button-container">
+            <a href="index.html"><button id="button11">Clock</button></a>
+            <a href="timer.html"><button id="button22">Timer</button></a>
+            <a href="alarm.html"><button id="button33">Alarm</button></a>
+        </div>
+    </div>
+    
+        
+    <script src="timer.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock_Timer_Alarm</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://fonts.googleapis.com/css?family=IBM Plex Serif' rel='stylesheet'>
+</head>
+<body>
+    <div class="container">
+        <div class="mode_button" id="mode-toggle-index">
+            <button id="theme-toggle-index">Mode</button>
+        </div>
+
+        <div id="clock">00:00:00</div>
+
+        <div class="button-container">
+            <a href="index.html"><button id="button1">Clock</button></a>
+            <a href="timer.html"><button id="button2">Timer</button></a>
+            <a href="alarm.html"><button id="button3">Alarm</button></a>
+        </div>
+        
+    </div>
+
+    <!-- for the mode button -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        // Get the theme toggle button element
+        const themeToggle = document.getElementById('theme-toggle-index');
+        const modeToggle = document.getElementById('mode-toggle-index');
+
+        // Function to toggle the dark theme
+        function toggleDarkTheme() {
+            document.body.classList.toggle('dark-theme');
+            // Update the theme preference in localStorage
+            const isDarkTheme = document.body.classList.contains('dark-theme');
+            localStorage.setItem('theme', isDarkTheme ? 'dark' : 'light');
+        }
+
+        // Event listener for the theme toggle button
+        themeToggle.addEventListener('click', toggleDarkTheme);
+
+        // Retrieve the theme preference from localStorage and apply it
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.body.classList.add('dark-theme');
+        }
+        });
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>
